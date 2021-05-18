@@ -29,9 +29,14 @@
           <label for="desc" class="form-label">todo description</label>
           <input type="text" class="form-control" name="desc" id="desc" />
         </div>
-        <button type="submit" class="btn btn-primary" href="/">Submit</button>
+        <button type="submit" class="btn btn-dark" href="/">Submit</button>
       </form>
+      {% if allTodo|length == 0 %}
+      <div class="alert alert-dark my-4" role="alert">
+        enter your firt to do
+      </div>
 
+      {% else %}
       <table class="table">
         <thead>
           <tr>
@@ -42,6 +47,7 @@
             <th scope="col">Actions</th>
           </tr>
         </thead>
+
         <tbody>
           {% for todo in allTodo %}
           <tr>
@@ -49,10 +55,29 @@
             <td>{{todo.title}}</td>
             <td>{{todo.desc}}</td>
             <td>{{todo.date_created}}</td>
+            <td>
+              <a href="/delete/{{todo.sno}}"
+                ><button
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary mx-1"
+                >
+                  Delete
+                </button>
+              </a>
+              <a href="/delete/{{todo.sno}}"
+                ><button
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary mx-1"
+                >
+                  Update
+                </button>
+              </a>
+            </td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
+      {% endif %}
     </div>
   </body>
 </html>
