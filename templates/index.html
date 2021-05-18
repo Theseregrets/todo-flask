@@ -16,7 +16,7 @@
   <body>
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Navbar</span>
+        <span class="navbar-brand mb-0 h1">Todo</span>
       </div>
     </nav>
     <div class="container">
@@ -33,7 +33,7 @@
       </form>
       {% if allTodo|length == 0 %}
       <div class="alert alert-dark my-4" role="alert">
-        enter your firt to do
+        enter your first to do
       </div>
 
       {% else %}
@@ -64,7 +64,7 @@
                   Delete
                 </button>
               </a>
-              <a href="/delete/{{todo.sno}}"
+              <a href="/update/{{todo.sno}}"
                 ><button
                   type="button"
                   class="btn btn-sm btn-outline-secondary mx-1"
